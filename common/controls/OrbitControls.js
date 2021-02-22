@@ -1,3 +1,6 @@
+/* 
+小程序端的 OrbitControls js文件
+ */
 /**
  * @author qiao / https://github.com/qiao
  * @author mrdoob / http://mrdoob.com
@@ -16,19 +19,14 @@ import {
 	Vector2,
 	Vector3,
 	global as window
-} from "@/common/libs/three.weapp.left.js";
+} from "@/common/threejs/three.weapp.js";//随便指定一个threejs
 
-// 	This set of controls performs orbiting, dollying (zooming), and panning.
-// 	Unlike TrackballControls, it maintains the "up" direction object.up (+Y by default).
-//	这组控件执行动态观察、推拉（缩放）和平移。
-//	与轨迹球控件不同，它保持“向上”方向对象。向上（+Y默认值）。
-
-//  Orbit - left mouse / touch: one-finger move
-//  Zoom - middle mouse, or mousewheel / touch: two-finger spread or squish
-//  Pan - right mouse, or left mouse + ctrl/meta/shiftKey, or arrow keys / touch: two-finger move
-//	环绕-鼠标左键/触摸：移动一个手指
-//	缩放-鼠标中键或鼠标滚轮/触摸：两个手指展开或挤压
-//	平移-鼠标右键，或鼠标左键+ctrl/meta/shiftKey，或箭头键/触摸键：两个手指移动
+// This set of controls performs orbiting, dollying (zooming), and panning.
+// Unlike TrackballControls, it maintains the "up" direction object.up (+Y by default).
+//
+//    Orbit - left mouse / touch: one-finger move
+//    Zoom - middle mouse, or mousewheel / touch: two-finger spread or squish
+//    Pan - right mouse, or left mouse + ctrl/meta/shiftKey, or arrow keys / touch: two-finger move
 
 var OrbitControls = function (object, domElement) {
 
@@ -36,96 +34,74 @@ var OrbitControls = function (object, domElement) {
 
 	this.domElement = (domElement !== undefined) ? domElement : document;
 
-	// 	Set to false to disable this control
-	// 	设置为false以禁用此控件
+	// Set to false to disable this control
 	this.enabled = true;
 
-	// 	"target" sets the location of focus, where the object orbits around
-	// 	“目标”设置焦点的位置，即物体围绕的位置
+	// "target" sets the location of focus, where the object orbits around
 	this.target = new Vector3();
 
-	// 	How far you can dolly in and out ( PerspectiveCamera only )
-	// 	您可以推拉进出多远（仅限透视摄像头）
+	// How far you can dolly in and out ( PerspectiveCamera only )
 	this.minDistance = 0;
 	this.maxDistance = Infinity;
 
-	// 	How far you can zoom in and out ( OrthographicCamera only )
-	//	可以放大和缩小的距离（仅限正交摄影机）
+	// How far you can zoom in and out ( OrthographicCamera only )
 	this.minZoom = 0;
 	this.maxZoom = Infinity;
 
-	// 	How far you can orbit vertically, upper and lower limits.
-	// 	Range is 0 to Math.PI radians.
-	//	垂直轨道的距离，上限和下限。
-	//	范围为0到Math.PI弧度。
+	// How far you can orbit vertically, upper and lower limits.
+	// Range is 0 to Math.PI radians.
 	this.minPolarAngle = 0; // radians
 	this.maxPolarAngle = Math.PI; // radians
 
-	// 	How far you can orbit horizontally, upper and lower limits.
-	//	If set, must be a sub-interval of the interval [ - Math.PI, Math.PI ].
-	//	水平轨道的距离，上限和下限。
-	//	如果设置，则必须是间隔[-Math.PI, Math.PI].
+	// How far you can orbit horizontally, upper and lower limits.
+	// If set, must be a sub-interval of the interval [ - Math.PI, Math.PI ].
 	this.minAzimuthAngle = - Infinity; // radians
 	this.maxAzimuthAngle = Infinity; // radians
 
-	// 	Set to true to enable damping (inertia)
-	// 	If damping is enabled, you must call controls.update() in your animation loop
-	//	设置为true以启用阻尼（惯性）
-	//	如果启用了阻尼，则必须调用控件。更新（）在动画循环中
+	// Set to true to enable damping (inertia)
+	// If damping is enabled, you must call controls.update() in your animation loop
 	this.enableDamping = false;
 	this.dampingFactor = 0.05;
 
-	// 	This option actually enables dollying in and out; left as "zoom" for backwards compatibility.
-	// 	Set to false to disable zooming
-	//	这个选项实际上支持推拉进和推拉出；左为“缩放”以向后兼容。
-	//	设置为false以禁用缩放
+	// This option actually enables dollying in and out; left as "zoom" for backwards compatibility.
+	// Set to false to disable zooming
 	this.enableZoom = true;
 	this.zoomSpeed = 1.0;
 
-	// 	Set to false to disable rotating
-	//	设置为false以禁用旋转
+	// Set to false to disable rotating
 	this.enableRotate = true;
 	this.rotateSpeed = 1.0;
 
-	// 	Set to false to disable panning
-	//	设置为false以禁用平移
+	// Set to false to disable panning
 	this.enablePan = true;
 	this.panSpeed = 1.0;
-	this.screenSpacePanning = false; // if true, pan in screen-space	如果为true，则在屏幕空间中平移
-	this.keyPanSpeed = 7.0;	// pixels moved per arrow key push		按箭头键移动的像素
+	this.screenSpacePanning = false; // if true, pan in screen-space
+	this.keyPanSpeed = 7.0;	// pixels moved per arrow key push
 
-	// 	Set to true to automatically rotate around the target
-	// 	If auto-rotate is enabled, you must call controls.update() in your animation loop
-	//	设置为true可围绕目标自动旋转
-	//	如果启用了自动旋转，则必须调用控件。更新（）在动画循环中
+	// Set to true to automatically rotate around the target
+	// If auto-rotate is enabled, you must call controls.update() in your animation loop
 	this.autoRotate = false;
 	this.autoRotateSpeed = 2.0; // 30 seconds per round when fps is 60
 
-	// 	Set to false to disable use of the keys
-	//	设置为false以禁用密钥的使用
+	// Set to false to disable use of the keys
 	this.enableKeys = true;
 
-	// 	The four arrow keys
-	//	四个箭头键
+	// The four arrow keys
 	this.keys = { LEFT: 37, UP: 38, RIGHT: 39, BOTTOM: 40 };
 
-	// 	Mouse buttons
-	//	鼠标按钮
+	// Mouse buttons
 	this.mouseButtons = { LEFT: MOUSE.ROTATE, MIDDLE: MOUSE.DOLLY, RIGHT: MOUSE.PAN };
 
-	// 	Touch fingers
-	//	触摸手指
+	// Touch fingers
 	this.touches = { ONE: TOUCH.ROTATE, TWO: TOUCH.DOLLY_PAN };
 
-	// 	for reset
-	//	用于重置
+	// for reset
 	this.target0 = this.target.clone();
 	this.position0 = this.object.position.clone();
 	this.zoom0 = this.object.zoom;
 
 	//
-	// 	public methods
-	//	公共方法
+	// public methods
 	//
 
 	this.getPolarAngle = function () {
@@ -168,8 +144,7 @@ var OrbitControls = function (object, domElement) {
 
 		var offset = new Vector3();
 
-		// 	so camera.up is the orbit axis
-		//	camera.up是轨道轴
+		// so camera.up is the orbit axis
 		var quat = new Quaternion().setFromUnitVectors(object.up, new Vector3(0, 1, 0));
 		var quatInverse = quat.clone().inverse();
 
@@ -182,12 +157,10 @@ var OrbitControls = function (object, domElement) {
 
 			offset.copy(position).sub(scope.target);
 
-			//	rotate offset to "y-axis-is-up" space
-			//	旋转偏移到“y轴向上”空间
+			// rotate offset to "y-axis-is-up" space
 			offset.applyQuaternion(quat);
 
-			//	angle from z-axis around y-axis
-			//	从z轴到y轴的角度
+			// angle from z-axis around y-axis
 			spherical.setFromVector3(offset);
 
 			if (scope.autoRotate && state === STATE.NONE) {

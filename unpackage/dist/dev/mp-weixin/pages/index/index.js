@@ -150,6 +150,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var THREE = _interopRequireWildcard(__webpack_require__(/*! @/common/threejs/three.weapp.js */ 17));
 
 
@@ -165,13 +166,14 @@ var THREE = _interopRequireWildcard(__webpack_require__(/*! @/common/threejs/thr
 
 
 
-var _testDemo = __webpack_require__(/*! @/common/test-cases/testDemo.js */ 18);
 
 
-var _testDemo2 = __webpack_require__(/*! @/common/test-cases/testDemo2.js */ 21);
 
 
-var _testDemo3 = __webpack_require__(/*! @/common/test-cases/testDemo3.js */ 23);function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;} //
+
+
+var _testDemo = __webpack_require__(/*! @/common/test-cases/testDemo3.js */ 23);function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;} //
+//
 //
 //
 //
@@ -199,80 +201,58 @@ var _testDemo3 = __webpack_require__(/*! @/common/test-cases/testDemo3.js */ 23)
 // import {
 // 	renderSphere
 // } from '@/common/test-cases/sphere.js'
+// import {
+// 	testDemo
+// } from '@/common/test-cases/testDemo.js'
+// import {
+// 	testDemo2
+// } from '@/common/test-cases/testDemo2.js'
+// import {
+// 	testLeft
+// } from '@/common/test-cases/testLeft.js'
+// import {
+// 	testRight
+// } from '@/common/test-cases/testRight.js'
 var _default = { onLoad: function onLoad() {uni.createSelectorQuery().in(this).select('#webgl').node().exec(function (res) {var canvasId = res[0].node._canvasId;var canvas = THREE.global.registerCanvas(canvasId, res[0].node); // testDemo(canvas, THREE)
       // testDemo2(canvas, THREE)
-      (0, _testDemo3.testDemo3)(canvas, THREE);}); // uni.createSelectorQuery()
+      (0, _testDemo.testDemo3)(canvas, THREE);}); // uni.createSelectorQuery()
     // 	.in(this)
-    // 	.select('#webglLeft')
+    // 	.selectAll('#webglLeft,#webglRight')
     // 	.node()
     // 	.exec((res) => {
-    // 		let canvasId = res[0].node._canvasId
-    // 		const canvas = THREELEFT.global.registerCanvas(canvasId, res[0].node)
-    // 		// testDemo(canvas, THREELEFT)
-    // 		// testDemo2(canvas, THREELEFT)
-    // 		testDemo3(canvas, THREELEFT)
+    // 		let canvasLeftId = res[0][0].node._canvasId
+    // 		const canvasLeft = THREELEFT.global.registerCanvas(canvasLeftId, res[0][0].node)
+    // 		let canvasRightId = res[0][1].node._canvasId
+    // 		const canvasRight = THREERIGHT.global.registerCanvas(canvasRightId, res[0][1].node)
+    // 		//加载顺序不可夹在上面代码中，否则真机测试会出现undefined
+    // 		testLeft(canvasLeft, THREELEFT)
+    // 		testRight(canvasRight, THREERIGHT)
     // 	})
-    // uni.createSelectorQuery()
-    // 	.in(this)
-    // 	.select('#webglRight')
-    // 	.node()
-    // 	.exec((res) => {
-    // 		let canvasId = res[0].node._canvasId
-    // 		const canvas = THREERIGHT.global.registerCanvas(canvasId, res[0].node)
-    // 		// testDemo(canvas, THREERIGHT)
-    // 		// testDemo2(canvas, THREERIGHT)
-    // 		testDemo3(canvas, THREERIGHT)
-    // 	})
-  }, methods: { touchStart: function touchStart(e) {console.log(1, e);THREE.global.touchEventHandlerFactory('canvas', 'touchstart')(e);}, touchMove: function touchMove(e) {console.log(2, e);THREE.global.touchEventHandlerFactory('canvas', 'touchmove')(e);}, touchEnd: function touchEnd(e) {console.log(3, e);THREE.global.touchEventHandlerFactory('canvas', 'touchend')(e);} // loadLeft() {
-    // 	uni.createSelectorQuery()
-    // 		.in(this)
-    // 		.select('#webglLeft')
-    // 		.node()
-    // 		.exec((res) => {
-    // 			let canvasId = res[0].node._canvasId
-    // 			const canvas = THREELEFT.global.registerCanvas(canvasId, res[0].node)
-    // 		})
-    // },
-    // loadRight() {
-    // 	uni.createSelectorQuery()
-    // 		.in(this)
-    // 		.select('#webglRight')
-    // 		.node()
-    // 		.exec((res) => {
-    // 			let canvasId = res[0].node._canvasId
-    // 			const canvas = THREERIGHT.global.registerCanvas(canvasId, res[0].node)
-    // 		})
-    // },
-    // touchStartLeft(e) {
-    // 	console.log(1,e)
+  }, methods: { touchStart: function touchStart(e) {console.log(1, e);THREE.global.touchEventHandlerFactory('canvas', 'touchstart')(e);}, touchMove: function touchMove(e) {console.log(2, e);THREE.global.touchEventHandlerFactory('canvas', 'touchmove')(e);}, touchEnd: function touchEnd(e) {console.log(3, e);THREE.global.touchEventHandlerFactory('canvas', 'touchend')(e);} // touchStartLeft(e) {
+    // 	console.log(4,e)
     // 	THREELEFT.global.touchEventHandlerFactory('canvasLeft', 'touchstart')(e)
     // },
     // touchMoveLeft(e) {
-    // 	console.log(2,e)
+    // 	console.log(5,e)
     // 	THREELEFT.global.touchEventHandlerFactory('canvasLeft', 'touchmove')(e)
     // },
     // touchEndLeft(e) {
-    // 	console.log(3,e)
+    // 	console.log(6,e)
     // 	THREELEFT.global.touchEventHandlerFactory('canvasLeft', 'touchend')(e)
     // },
     // touchStartRight(e) {
-    // 	console.log(4,e)
+    // 	console.log(7,e)
     // 	THREERIGHT.global.touchEventHandlerFactory('canvasRight', 'touchstart')(e)
     // },
     // touchMoveRight(e) {
-    // 	console.log(5,e)
+    // 	console.log(8,e)
     // 	THREERIGHT.global.touchEventHandlerFactory('canvasRight', 'touchmove')(e)
     // },
     // touchEndRight(e) {
-    // 	console.log(6,e)
+    // 	console.log(9,e)
     // 	THREERIGHT.global.touchEventHandlerFactory('canvasRight', 'touchend')(e)
     // },
-  },
-  created: function created() {
-    //重新获取节点信息解决第一个canvas出现undefined情况
-    // this.loadLeft()
-    // this.loadRight()
-  } };exports.default = _default;
+  }, created: function created() {} };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
