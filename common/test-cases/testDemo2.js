@@ -59,7 +59,7 @@ export function testDemo2(canvas, THREE) {
 		// scene.add(grid);
 
 		var loader = new THREE.STLLoader();
-		loader.load('http://www.dayin.la/data/downloadFile.html?key=9e83816f60d899f0674fd95a2e29f7ba', function(
+		loader.load('http://localhost:8080/host-manager/images/3DfootLeft.stl', function(
 			geometry) {
 			// 建立几何中心
 			geometry.center();  
@@ -79,8 +79,7 @@ export function testDemo2(canvas, THREE) {
 		renderer.setSize(canvas.width, canvas.height);
 		renderer.gammaOutput = true;
 		renderer.gammaFactor = 2.2;
-		
-		// 模型控制
+
 		const controls = new OrbitControls(camera, renderer.domElement);
 		// controls.enableDamping = true;
 		// controls.dampingFactor = 0.25;
