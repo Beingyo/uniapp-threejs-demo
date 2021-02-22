@@ -1,0 +1,1 @@
+<view class="content"><canvas style="width:100%;height:450px;" type="webgl" id="webgl" data-event-opts="{{[['touchstart',[['touchStart',['$event']]]],['touchmove',[['touchMove',['$event']]]],['touchend',[['touchEnd',['$event']]]]]}}" bindtouchstart="__e" bindtouchmove="__e" bindtouchend="__e"></canvas></view>
