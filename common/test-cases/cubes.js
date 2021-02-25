@@ -1,4 +1,4 @@
-export function renderCubes(canvas, THREE) {
+export function cubes(canvas, THREE) {
   var container, stats;
   var camera, scene, raycaster, renderer;
   var mouse = new THREE.Vector2(), INTERSECTED;

@@ -1,4 +1,4 @@
-export function renderSphere(canvas, THREE) {
+export function sphere(canvas, THREE) {
   var container, stats;
   var camera, scene, renderer;
   var pointLight;

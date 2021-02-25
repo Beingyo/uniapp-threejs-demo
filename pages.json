@@ -3,7 +3,49 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/cube/index",
+			"style": {
+				"navigationBarTitleText": "cube"
+			}
+		},
+		{
+			"path": "pages/cubes/index",
+			"style": {
+				"navigationBarTitleText": "cubes"
+			}
+		},
+		{
+			"path": "pages/cubeControls/index",
+			"style": {
+				"navigationBarTitleText": "cubeControls"
+			}
+		},
+		{
+			"path": "pages/sphere/index",
+			"style": {
+				"navigationBarTitleText": "sphere"
+			}
+		},
+		{
+			"path": "pages/glbModel/index",
+			"style": {
+				"navigationBarTitleText": "glbModel"
+			}
+		},
+		{
+			"path": "pages/stlModel/index",
+			"style": {
+				"navigationBarTitleText": "stlModel"
+			}
+		},
+		{
+			"path": "pages/twoControls/index",
+			"style": {
+				"navigationBarTitleText": "twoControls"
 			}
 		}
 	],

@@ -19,7 +19,7 @@ import {
 	Vector2,
 	Vector3,
 	global as window
-} from "@/common/threejs/three.weapp.js";//随便指定一个threejs
+} from "@/common/threejs/three.weapp.js";
 
 // This set of controls performs orbiting, dollying (zooming), and panning.
 // Unlike TrackballControls, it maintains the "up" direction object.up (+Y by default).
