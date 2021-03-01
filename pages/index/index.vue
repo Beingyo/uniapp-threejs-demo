@@ -21,7 +21,9 @@
 		<button type="primary" size="default" plain="true" @click="tap" id="twoControls">
 		    twoControls
 		</button>
-	    
+	    <button type="primary" size="default" plain="true" @click="tap" id="play">
+	        play
+	    </button>
 	</view>
 </template>
 

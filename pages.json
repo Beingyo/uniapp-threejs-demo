@@ -47,6 +47,12 @@
 			"style": {
 				"navigationBarTitleText": "twoControls"
 			}
+		},
+		{
+			"path": "pages/play/index",
+			"style": {
+				"navigationBarTitleText": "play"
+			}
 		}
 	],
 	"globalStyle": {
