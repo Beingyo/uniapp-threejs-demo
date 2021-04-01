@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-	    <canvas type="webgl" id="webgl" style="width: 100%; height: 450px;" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd"></canvas>
+	    <canvas type="webgl" id="webgl" style="width: 100%; height: 100%;" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd"></canvas>
 	</view>
 </template>
 
@@ -39,5 +39,6 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		height: 100vh;
 	}
 </style>

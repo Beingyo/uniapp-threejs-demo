@@ -6,6 +6,12 @@
 				"navigationBarTitleText": "首页"
 			}
 		},
+		{	// 测试
+			"path": "pages/play/index",
+			"style": {
+				"navigationBarTitleText": "play"
+			}
+		},
 		{
 			"path": "pages/cube/index",
 			"style": {
@@ -49,9 +55,21 @@
 			}
 		},
 		{
-			"path": "pages/play/index",
+			"path": "pages/shadow/index",
 			"style": {
-				"navigationBarTitleText": "play"
+				"navigationBarTitleText": "shadow"
+			}
+		},
+		{
+			"path": "pages/line/index",
+			"style": {
+				"navigationBarTitleText": "line"
+			}
+		},
+		{
+			"path": "pages/texture/index",
+			"style": {
+				"navigationBarTitleText": "texture"
 			}
 		}
 	],

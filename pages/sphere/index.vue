@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-	    <canvas type="webgl" id="webgl" style="width: 100%; height: 450px;"></canvas>
+	    <canvas type="webgl" id="webgl" style="width: 100%; height: 100%;"></canvas>
 	    
 	</view>
 </template>
@@ -29,5 +29,6 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		height: 100vh;
 	}
 </style>

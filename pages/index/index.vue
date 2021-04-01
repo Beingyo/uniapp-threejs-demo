@@ -21,9 +21,18 @@
 		<button type="primary" size="default" plain="true" @click="tap" id="twoControls">
 		    twoControls
 		</button>
-	    <button type="primary" size="default" plain="true" @click="tap" id="play">
-	        play
+	    <button type="primary" size="default" plain="true" @click="tap" id="shadow">
+	        shadow
 	    </button>
+		<button type="primary" size="default" plain="true" @click="tap" id="line">
+		    line
+		</button>
+		<button type="primary" size="default" plain="true" @click="tap" id="texture">
+		    texture
+		</button>
+		<button type="primary" size="default" plain="true" @click="tap" id="play">
+		    play
+		</button>
 	</view>
 </template>
 

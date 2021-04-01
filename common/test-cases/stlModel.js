@@ -14,7 +14,7 @@ export function stlModel(canvas, THREE) {
 		camera = new THREE.PerspectiveCamera(45, canvas.width / canvas.height, 0.25, 100);
 
 		// 相机初始位置
-		camera.position.set(-5, 5, 13);
+		camera.position.set(0.5, 0.5, 1);
 
 		//不明具体效果影响
 		camera.lookAt(new THREE.Vector3(0, 2, 0));
@@ -62,7 +62,7 @@ export function stlModel(canvas, THREE) {
 		// scene.add(grid);
 
 		var loader = new THREE.STLLoader();
-		loader.load('http://localhost:8080/host-manager/images/3DfootLeft_Last.stl', function(
+		loader.load('http://192.168.110.218:2375/apis/file-api/v1/stl/20210319101709775', function(
 			geometry) {
 			// 建立几何中心
 			geometry.center();
