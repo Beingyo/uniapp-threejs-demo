@@ -37,6 +37,8 @@ export function glbModel(canvas, THREE) {
     loader.load('https://threejs.org/examples/models/gltf/RobotExpressive/RobotExpressive.glb', function (gltf) {
       model = gltf.scene;
       scene.add(model);
+	  console.log(gltf)
+	  console.log(gltf.scene)
       createGUI(model, gltf.animations)
     }, undefined, function (e) {
       console.error(e);

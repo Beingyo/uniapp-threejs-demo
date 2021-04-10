@@ -16,11 +16,15 @@ export function cubeControls(canvas, THREE) {
 		
 		var texture = new THREE.TextureLoader().load('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.qifeiye.com%2Fqfy-content%2Fuploads%2F2017%2F12%2F57d4413677e0bdb4d10cf2d15648472c.jpg&refer=http%3A%2F%2Fwww.qifeiye.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616827399&t=93f63af7b0ace376d428d148dbc5e588');
 		var geometry = new THREE.BoxBufferGeometry(15, 15, 15);
+		// var geometry = new THREE.BoxBufferGeometry(15, 15, 15);
+		
 		var material = new THREE.MeshBasicMaterial({
 			map: texture
 		});
 		mesh = new THREE.Mesh(geometry, material);
 		scene.add(mesh);
+		
+		console.log(geometry)
 
 		camera.position.z = 20;
 		

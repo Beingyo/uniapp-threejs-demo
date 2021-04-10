@@ -18,6 +18,9 @@
 		<button type="primary" size="default" plain="true" @click="tap" id="stlModel">
 		    stlModel
 		</button>
+		<button type="primary" size="default" plain="true" @click="tap" id="objModel">
+		    objModel
+		</button>
 		<button type="primary" size="default" plain="true" @click="tap" id="twoControls">
 		    twoControls
 		</button>
@@ -27,8 +30,11 @@
 		<button type="primary" size="default" plain="true" @click="tap" id="line">
 		    line
 		</button>
-		<button type="primary" size="default" plain="true" @click="tap" id="texture">
-		    texture
+		<button type="primary" size="default" plain="true" @click="tap" id="uv">
+		    uv
+		</button>
+		<button type="primary" size="default" plain="true" @click="tap" id="fold">
+		    fold
 		</button>
 		<button type="primary" size="default" plain="true" @click="tap" id="play">
 		    play

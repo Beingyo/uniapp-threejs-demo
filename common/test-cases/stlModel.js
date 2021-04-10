@@ -14,7 +14,7 @@ export function stlModel(canvas, THREE) {
 		camera = new THREE.PerspectiveCamera(45, canvas.width / canvas.height, 0.25, 100);
 
 		// 相机初始位置
-		camera.position.set(0.5, 0.5, 1);
+		camera.position.set(10, 10, 20);
 
 		//不明具体效果影响
 		camera.lookAt(new THREE.Vector3(0, 2, 0));
@@ -23,26 +23,26 @@ export function stlModel(canvas, THREE) {
 		scene = new THREE.Scene();
 
 		//定义了线性雾
-		// scene.fog = new THREE.Fog(0xe0e0e0, 20, 100);
-		// scene.fog = new THREE.Fog("rgb(255, 255, 255)", 20, 100);
+		// scene.fog = new THREE.Fog('#e0e0e0', 20, 100);
+		// scene.fog = new THREE.Fog("#ffffff", 20, 100);
 
 		//定义时钟
 		clock = new THREE.Clock();
 		
 		// 定义环境光
-		// light = new THREE.AmbientLight("rgb(32, 164, 200)", 0.2);
+		// light = new THREE.AmbientLight("#20a4c8", 0.2);
 		// light.position.set(0, 20, -20);
 		// scene.add(light);
 		
 		// 定义半球光
-		// light = new THREE.HemisphereLight(0xffffff, 0x444444);
-		light = new THREE.HemisphereLight("rgb(200, 200, 200)", "rgb(80, 80, 80)");
+		// light = new THREE.HemisphereLight('#ffffff','#444444');
+		light = new THREE.HemisphereLight("#c8c8c8", "#505050");
 		light.position.set(0, 20, -20);
 		scene.add(light);
 		
 		//定义平行光
 		// light = new THREE.DirectionalLight(0xffffff);
-		light = new THREE.DirectionalLight("rgb(80, 80, 80)", 0.2);
+		light = new THREE.DirectionalLight("#505050", 0.2);
 		light.position.set(0, 20, -20);
 		scene.add(light);
 
@@ -62,7 +62,7 @@ export function stlModel(canvas, THREE) {
 		// scene.add(grid);
 
 		var loader = new THREE.STLLoader();
-		loader.load('http://192.168.110.218:2375/apis/file-api/v1/stl/20210319101709775', function(
+		loader.load('http://localhost:8080/host-manager/images/3DfootLeft_Last.stl', function(
 			geometry) {
 			// 建立几何中心
 			geometry.center();
@@ -72,9 +72,9 @@ export function stlModel(canvas, THREE) {
 			// geometry.rotateY(- Math.PI / 2);
 			//材质类型和颜色
 			var mat = new THREE.MeshPhongMaterial({
-				color: "rgb(255, 255, 255)",
+				color: "#ffffff",
 				// color: 0x2194ce,
-				specular: "rgb(255, 255, 255)",
+				specular: "#ffffff",
 				// 光滑度
 				shininess: 100,
 			});
@@ -82,11 +82,24 @@ export function stlModel(canvas, THREE) {
 			mesh = new THREE.Mesh(geometry, mat);
 			// 缩放
 			mesh.scale.set(0.04, 0.04, 0.04);
+			// 输出模型数据
+			console.log('↓模型数据↓')
+			console.log(geometry)
+			console.log('——————————————————————————————————————————')
+			console.log('↓顶点位置坐标↓')
+			console.log(geometry.attributes.position)
+			console.log('——————————————————————————————————————————')
+			console.log('↓顶点UV坐标↓')
+			console.log(geometry.attributes.uv)
+			console.log('——————————————————————————————————————————')
+			console.log('↓顶点法向量↓')
+			console.log(geometry.attributes.normal)
+			console.log('——————————————————————————————————————————')
 			scene.add(mesh);
 		});
 		
 		//背景色
-		scene.background = new THREE.Color("rgb(222, 250, 255)");
+		scene.background = new THREE.Color("#defaff");
 
 		renderer = new THREE.WebGLRenderer({
 			antialias: true,
