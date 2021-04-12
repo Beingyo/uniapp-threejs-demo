@@ -1,0 +1,94 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		// {	// 测试
+		// 	"path": "pages/fold/index",
+		// 	"style": {
+		// 		"navigationBarTitleText": "play"
+		// 	}
+		// },
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/cube/index",
+			"style": {
+				"navigationBarTitleText": "cube"
+			}
+		},
+		{
+			"path": "pages/cubes/index",
+			"style": {
+				"navigationBarTitleText": "cubes"
+			}
+		},
+		{
+			"path": "pages/cubeControls/index",
+			"style": {
+				"navigationBarTitleText": "cubeControls"
+			}
+		},
+		{
+			"path": "pages/glbModel/index",
+			"style": {
+				"navigationBarTitleText": "glbModel"
+			}
+		},
+		{
+			"path": "pages/stlModel/index",
+			"style": {
+				"navigationBarTitleText": "stlModel"
+			}
+		},
+		{
+			"path": "pages/twoControls/index",
+			"style": {
+				"navigationBarTitleText": "twoControls"
+			}
+		},
+		{
+			"path": "pages/shadow/index",
+			"style": {
+				"navigationBarTitleText": "shadow"
+			}
+		},
+		{
+			"path": "pages/line/index",
+			"style": {
+				"navigationBarTitleText": "line"
+			}
+		},
+		{
+			"path": "pages/uv/index",
+			"style": {
+				"navigationBarTitleText": "uv"
+			}
+		},
+		{
+			"path": "pages/objModel/index",
+			"style": {
+				"navigationBarTitleText": "objModel"
+			}
+		},
+		{
+			"path": "pages/fold/index",
+			"style": {
+				"navigationBarTitleText": "fold"
+			}
+		},
+		{
+			"path": "pages/play/index",
+			"style": {
+				"navigationBarTitleText": "play"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}
